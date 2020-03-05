@@ -54,7 +54,7 @@ ifeval::["{beatname_lc}"=="filebeat"]
 ["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run \
-{dockerimage} \
+{dockerimage container id} \
 setup -E setup.kibana.host=kibana:5601 \
 -E output.elasticsearch.hosts=["elasticsearch:9200"] <1> <2>
 --------------------------------------------
@@ -64,7 +64,7 @@ ifeval::["{beatname_lc}"=="metricbeat"]
 ["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run \
-{dockerimage} \
+{dockerimage container id} \
 setup -E setup.kibana.host=kibana:5601 \
 -E output.elasticsearch.hosts=["elasticsearch:9200"] <1> <2>
 --------------------------------------------
@@ -74,7 +74,7 @@ ifeval::["{beatname_lc}"=="heartbeat"]
 ["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run \
-{dockerimage} \
+{dockerimage container id} \
 setup -E setup.kibana.host=kibana:5601 \
 -E output.elasticsearch.hosts=["elasticsearch:9200"] <1> <2>
 --------------------------------------------
@@ -84,7 +84,7 @@ ifeval::["{beatname_lc}"=="journalbeat"]
 ["source", "sh", subs="attributes"]
 --------------------------------------------
 docker run \
-{dockerimage} \
+{dockerimage container id} \
 setup -E setup.kibana.host=kibana:5601 \
 -E output.elasticsearch.hosts=["elasticsearch:9200"] <1> <2>
 --------------------------------------------
@@ -95,7 +95,7 @@ ifeval::["{beatname_lc}"=="packetbeat"]
 --------------------------------------------
 docker run \
 --cap-add=NET_ADMIN \
-{dockerimage} \
+{dockerimage container id} \
 setup -E setup.kibana.host=kibana:5601 \
 -E output.elasticsearch.hosts=["elasticsearch:9200"] <1> <2>
 --------------------------------------------
@@ -305,7 +305,7 @@ ifeval::["{beatname_lc}"=="auditbeat"]
 
 ["source", "dockerfile", subs="attributes"]
 --------------------------------------------
-FROM {dockerimage}
+FROM {dockerimage container id}
 COPY {beatname_lc}.yml /usr/share/{beatname_lc}/{beatname_lc}.yml
 --------------------------------------------
 
